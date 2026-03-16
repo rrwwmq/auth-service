@@ -45,7 +45,7 @@ func (s *AuthService) Login(email, password string) error {
 
 	if !CheckPasswordHash(password, user.PasswordHash) {
 		fmt.Println("invalid password")
-		return err
+		return fmt.Errorf("invalid password")
 	}
 
 	return nil
