@@ -20,14 +20,12 @@ func NewAuthService(userRepo *postgres.UserRepo) *AuthService {
 func (s *AuthService) Register(email, password string) error {
 	_, err := s.userRepo.GetByEmail(email)
 	if err == nil {
-		fmt.Println("email already exists")
-		return err
+		return fmt.Errorf("email alredy exists")
 	}
 
 	hash, err := HashPassword(password)
 	if err != nil {
-		fmt.Println("failed to hash the password")
-		return err
+		return fmt.Errorf("failed to hash the password")
 	}
 
 	return s.userRepo.Create(domain.User{
@@ -39,8 +37,7 @@ func (s *AuthService) Register(email, password string) error {
 func (s *AuthService) Login(email, password string) error {
 	user, err := s.userRepo.GetByEmail(email)
 	if err != nil {
-		fmt.Println("failed to find the email")
-		return err
+		return fmt.Errorf("failed to find the email")
 	}
 
 	if !CheckPasswordHash(password, user.PasswordHash) {
