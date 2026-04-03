@@ -2,11 +2,6 @@
 
 > REST сервис аутентификации на Go — регистрация и авторизация пользователей с хешированием паролей.
 
-![Go](https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat&logo=go)
-![Gin](https://img.shields.io/badge/Gin-1.9-blue?style=flat)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=flat&logo=postgresql)
-![Docker](https://img.shields.io/badge/Docker-compose-2496ED?style=flat&logo=docker)
-
 ---
 
 ## О проекте
